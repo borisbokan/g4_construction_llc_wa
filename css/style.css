@@ -1,0 +1,840 @@
+/* G4 CONSTRUCTION LLC - MAIN STYLESHEET */
+
+/* ----------------------------------------------------------------
+   1. VARIABLES & RESET
+---------------------------------------------------------------- */
+:root {
+  /* Боје: Наранџаста (Примарна) и Плава (Секундарна) */
+  --color-primary: #FF7F50;
+  /* Наранџасто-корална */
+  --color-secondary: #0077b6;
+  /* Плава */
+  --color-text: #333333;
+  /* Тамно сива - За главни текст */
+  --color-light: #f4f4f4;
+  /* Светло сива - За позадине */
+  --color-white: #ffffff;
+  --color-dark: #222222;
+  /* Скоро црна */
+
+  /* Фонтови */
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+/* Основни ресет */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  /* ОВО ЈЕ ГЛАВНА БОЈА ТЕКСТА */
+  line-height: 1.6;
+  background-color: var(--color-white);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ----------------------------------------------------------------
+   2. УОПШТЕНЕ КЛАСЕ
+---------------------------------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.subsection-title {
+  font-size: 1.8rem;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--color-light);
+  padding-bottom: 10px;
+}
+
+/* Дугмад */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: #ff6347;
+}
+
+.btn-secondary {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background-color: #000000;
+}
+
+.btn-large {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+/* ----------------------------------------------------------------
+   3. HEADER
+---------------------------------------------------------------- */
+.main-header {
+  background-color: var(--color-white);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.logo .llc {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
+
+/* Навигација */
+.main-nav .nav-list {
+  display: flex;
+  gap: 30px;
+}
+
+.main-nav a {
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 0;
+  position: relative;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--color-primary);
+}
+
+.main-nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-primary);
+}
+
+.header-contact .phone-link {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.header-contact .phone-link:hover {
+  color: var(--color-primary);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-dark);
+}
+
+.menu-toggle .fa-times {
+  display: none;
+}
+
+/* ----------------------------------------------------------------
+   4. HOME PAGE SECTIONS
+---------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  height: 500px;
+  background: url('../img/hero_placeholder.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  color: var(--color-light);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text h2 {
+  text-align: left;
+  color: var(--color-dark);
+}
+
+.about-image img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.services-preview {
+  background-color: var(--color-light);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.service-item {
+  padding: 30px 20px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-item i {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+.service-item h3 {
+  margin-bottom: 10px;
+  color: var(--color-secondary);
+}
+
+.bg-dark-texture {
+  background-color: var(--color-dark);
+  background-size: cover;
+  color: var(--color-white);
+}
+
+.reviews-section .section-title {
+  color: var(--color-primary);
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.review-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 5px solid var(--color-primary);
+}
+
+.icon-quote {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+.review-text {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--color-white);
+}
+
+.reviewer-name {
+  font-weight: bold;
+  color: var(--color-light);
+  margin-bottom: 10px;
+}
+
+.review-stars i {
+  color: gold;
+  font-size: 1rem;
+}
+
+/* ----------------------------------------------------------------
+   5. SUBPAGE INTRO SECTION (Services, Gallery, Contact)
+---------------------------------------------------------------- */
+.page-intro {
+  background-color: var(--color-light);
+  padding: 80px 0;
+  text-align: center;
+  border-bottom: 5px solid var(--color-primary);
+}
+
+.page-intro .page-title {
+  font-size: 3rem;
+  color: var(--color-dark);
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------------
+   6. SERVICES PAGE STYLES (Preparation)
+---------------------------------------------------------------- */
+.services-preparation .text-center {
+  text-align: center;
+}
+
+.prep-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+  background-color: var(--color-light);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prep-box h2 {
+  color: var(--color-secondary);
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+.prep-box p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+
+.icon-huge {
+  font-size: 4rem;
+  color: var(--color-primary);
+}
+
+/* ----------------------------------------------------------------
+   7. GALLERY PAGE STYLES (Grid & LightBox)
+---------------------------------------------------------------- */
+.video-highlights {
+  margin-bottom: 60px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.video-item iframe {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-caption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+  color: var(--color-dark);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* LIGHTBOX (МОДАЛ) */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 900px;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  text-align: center;
+  color: var(--color-white);
+  padding: 10px 0;
+  height: 50px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  color: var(--color-primary);
+}
+
+/* Carousel дугмад */
+.lightbox-prev,
+.lightbox-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.lightbox-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ----------------------------------------------------------------
+   8. CONTACT PAGE STYLES
+---------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.contact-info h2 {
+  color: var(--color-primary);
+  margin-bottom: 25px;
+}
+
+.contact-info p {
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.info-item .icon-primary {
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  margin-right: 15px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.info-item h4 {
+  margin-bottom: 5px;
+  color: var(--color-dark);
+}
+
+.info-item a {
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.contact-form-container {
+  padding: 30px;
+  background-color: var(--color-light);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 15px;
+}
+
+.map-embed {
+  margin-top: 30px;
+  border: 5px solid var(--color-primary);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ----------------------------------------------------------------
+   9. FOOTER
+---------------------------------------------------------------- */
+.main-footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 40px 0 20px 0;
+  font-size: 0.9rem;
+  border-top: 5px solid var(--color-primary);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.main-footer h4 {
+  color: var(--color-primary);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.footer-contact p,
+.footer-info p {
+  margin-bottom: 10px;
+  color: var(--color-light);
+}
+
+.footer-contact a {
+  color: var(--color-white);
+}
+
+.footer-contact a:hover {
+  color: var(--color-primary);
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: var(--color-light);
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+
+/* ----------------------------------------------------------------
+   10. ANIMATIONS & SCROLL REVEAL (ФИКСИРАНО)
+---------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  /* КЉУЧНА ИСПРАВКА: Осигуравамо да је боја текста дефинисана */
+  color: inherit;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.reveal:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.about-image .reveal {
+  transform: scale(0.9);
+}
+
+.about-image .reveal.active {
+  transform: scale(1);
+}
+
+/* ----------------------------------------------------------------
+   11. RESPONSIVE DESIGN (МЕДИЈСКИ УПИТИ - ФИКСИРАНО)
+---------------------------------------------------------------- */
+@media (max-width: 992px) {
+
+  .header-content {
+    padding: 10px 20px;
+  }
+
+  .main-nav {
+    /* Десктоп навигација се сакрива */
+    display: none;
+  }
+
+  .header-contact {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Мобилни мени стилови - Активира се само када је отворен */
+  .main-nav.open {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-dark);
+    z-index: 999;
+    padding-top: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: block;
+    /* Појављује се */
+    opacity: 1;
+  }
+
+  .main-nav .nav-list {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .main-nav .nav-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .main-nav a {
+    color: var(--color-white);
+    font-size: 1.5rem;
+  }
+
+  /* Home page */
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    text-align: center;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  /* Contact page */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  .hero-section {
+    height: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .page-intro {
+    padding: 50px 0;
+  }
+
+  .page-intro .page-title {
+    font-size: 2rem;
+  }
+}
+
+/* НОВИ СТИЛОВИ ЗА ЛОГОТИП СЛИКУ */
+.logo-image-container {
+  display: inline-block;
+  height: 200px;
+  /* Подеси висину логотипа у хедеру */
+}
+
+.logo-image-container .logo-img {
+  height: 100%;
+  width: auto;
+}
+
+/* На мобилном */
+@media (max-width: 992px) {
+  .logo-image-container {
+    height: 30px;
+  }
+}
+
+/* Крај НОВИХ СТИЛОВА */
