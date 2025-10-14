@@ -31,10 +31,33 @@
 
 body {
   font-family: var(--font-body);
-  color: var(--color-text);
-  /* ОВО ЈЕ ГЛАВНА БОЈА ТЕКСТА */
+  color: var(--color-white);
   line-height: 1.6;
   background-color: var(--color-white);
+  /* Ова боја ће бити прекривена сликом */
+
+  /* НОВА ПОЗАДИНА ЗА ЦЕО САДРЖАЈ */
+  background: url('../img/bathroom_bg.jpg') no-repeat fixed center center/cover;
+  position: relative;
+}
+
+/* Додајемо прекривач и замућење на тело */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+
+  filter: blur(5px);
+  transform: scale(1.02);
+
+  /* КОРЕКЦИЈА: Појачавамо прозирност са 0.1 на 0.5 (полу-тамно) */
+  background-color: rgba(255, 127, 80, 0.5);
+  /* 50% наранџасте */
+  background-blend-mode: multiply;
 }
 
 h1,
@@ -42,13 +65,13 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
-  color: var(--color-dark);
+  color: var(--color-white);
   line-height: 1.2;
 }
 
 a {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-white);
   transition: color 0.3s;
 }
 
@@ -84,7 +107,8 @@ img {
   font-size: 2.5rem;
   margin-bottom: 40px;
   text-transform: uppercase;
-  color: var(--color-primary);
+  /* КОРЕКЦИЈА: Постављамо га на белу. Користићемо #F0F0F0 за 'загасито белу' */
+  color: #F0F0F0;
 }
 
 .subsection-title {
@@ -137,7 +161,7 @@ img {
 ---------------------------------------------------------------- */
 .main-header {
   background-color: var(--color-white);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -174,11 +198,13 @@ img {
   text-transform: uppercase;
   padding: 5px 0;
   position: relative;
+  color: var(--color-dark);
 }
 
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--color-primary);
+    
 }
 
 .main-nav a.active::after {
@@ -264,7 +290,7 @@ img {
 
 .about-text h2 {
   text-align: left;
-  color: var(--color-dark);
+color: #F0F0F0;
 }
 
 .about-image img {
@@ -275,9 +301,24 @@ img {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.services-preview {
+/* .services-preview {
   background-color: var(--color-light);
+} */
+
+/* SERVICES PREVIEW STYLES */
+.services-preview {
+  /* Уклоњена је једноставна боја позадине */
+  position: relative;
+  /* Обавезно за позиционирање ::before */
+  overflow: hidden;
+  /* Да се замућење не прелије */
+  padding: 80px 0;
+  /* Враћен padding, ако је нестао */
+  z-index: 1;
+  /* Осигурава да садржај буде изнад позадине */
 }
+
+
 
 .service-grid {
   display: grid;
@@ -286,28 +327,38 @@ img {
   text-align: center;
 }
 
+
 .service-item {
   padding: 30px 20px;
-  background-color: var(--color-white);
+  /* Променимо да буде делимично прозирно и са белим текстом */
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Скоро бела, да пропушта мало позадине */
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
 }
 
-.service-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
+/* Такође, подеси боју за наслов и иконе да буду тамне, ради контраста */
 .service-item i {
   font-size: 2.5rem;
   color: var(--color-primary);
+  /* Наранџаста */
   margin-bottom: 15px;
 }
 
 .service-item h3 {
   margin-bottom: 10px;
-  color: var(--color-secondary);
+  color: var(--color-dark);
+  /* Тамна боја */
+}
+
+/* Можда ћеш морати да промениш и боју главног наслова секције */
+.services-preview .section-title {
+  color: var(--color-white);
+  /* Врати на тамну, ако је слика светлија */
+  position: relative;
+  /* Да буде изнад позадине */
+  z-index: 2;
 }
 
 .bg-dark-texture {
@@ -317,7 +368,7 @@ img {
 }
 
 .reviews-section .section-title {
-  color: var(--color-primary);
+  color: var(--color-white)
 }
 
 .review-grid {
@@ -362,7 +413,6 @@ img {
    5. SUBPAGE INTRO SECTION (Services, Gallery, Contact)
 ---------------------------------------------------------------- */
 .page-intro {
-  background-color: var(--color-light);
   padding: 80px 0;
   text-align: center;
   border-bottom: 5px solid var(--color-primary);
@@ -370,7 +420,7 @@ img {
 
 .page-intro .page-title {
   font-size: 3rem;
-  color: var(--color-dark);
+color: #F0F0F0;
   text-transform: uppercase;
 }
 
@@ -387,8 +437,11 @@ img {
   padding: 40px;
   border: 2px solid var(--color-primary);
   border-radius: 10px;
-  background-color: var(--color-light);
+  /* КОРИСТИМО ПОЛУ-ПРОЗИРНУ БЕЛУ ЗА ЧИТЉИВОСТ */
+  background-color: rgba(255, 255, 255, 0.75);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .prep-box h2 {
@@ -554,6 +607,7 @@ img {
 
 .contact-info p {
   margin-bottom: 20px;
+  color: var(--color-white);
 }
 
 .info-item {
@@ -572,7 +626,7 @@ img {
 
 .info-item h4 {
   margin-bottom: 5px;
-  color: var(--color-dark);
+  color: var(--color-light);
 }
 
 .info-item a {
@@ -582,15 +636,23 @@ img {
 
 .contact-form-container {
   padding: 30px;
-  background-color: var(--color-light);
+  /* ПОЛУ-ПРОЗИРНА БЕЛА ЗА ЧИТЉИВОСТ */
+  background-color: rgba(255, 255, 255, 0.85);
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .contact-form h3 {
   text-align: center;
   color: var(--color-primary);
-  margin-bottom: 30px;
+  /* color: var(--color-white); */
+    margin-bottom: 30px;
+}
+
+.contact-info h2{
+  color: var(--color-white);
 }
 
 .form-group {
@@ -601,6 +663,7 @@ img {
   display: block;
   font-weight: 700;
   margin-bottom: 5px;
+  color: var(--color-primary);
 }
 
 .form-group input,
@@ -611,6 +674,8 @@ img {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
+  color: var(--color-dark);
+    background-color: var(--color-white);
 }
 
 .form-note {
@@ -836,5 +901,16 @@ img {
     height: 30px;
   }
 }
+
+    /* PHOTO GALLERY SECTION */
+    .gallery-section {
+      /* background-color: var(--color-light); <--- УКЛОНИ ОВО */
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+
+    
 
 /* Крај НОВИХ СТИЛОВА */
