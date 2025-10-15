@@ -11,6 +11,38 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
+<script>
+  function validateForm() {
+    // Dohvatanje elemenata forme
+    const nameField = document.getElementById('name');
+    const emailField = document.getElementById('email');
+    const messageField = document.getElementById('message'); // Polje za poruku
+    const errorMessage = document.getElementById('error-message');
+
+    // Regularni izraz za osnovnu proveru email formata
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // --- Provera da li su sva polja prazna ---
+    // (Ovo uključuje Ime, Email, i Poruku)
+    if (nameField.value.trim() === "" || emailField.value.trim() === "" || messageField.value.trim() === "") {
+      errorMessage.textContent = "Please ensure all fields (Name, Email, and Message) are filled.";
+      errorMessage.style.display = 'block';
+      return false; // Sprečava slanje forme
+    }
+
+    // --- Provera validnosti email formata ---
+    if (!emailRegex.test(emailField.value.trim())) {
+      errorMessage.textContent = "Please enter a valid email address (e.g., user@example.com).";
+      errorMessage.style.display = 'block';
+      return false; // Sprečava slanje forme
+    }
+
+    // Ako je sve u redu
+    errorMessage.style.display = 'none';
+    return true; // Dozvoljava slanje forme na send_email.php
+  }
+</script>
+
 <body>
 
   <header class="main-header">
@@ -94,7 +126,7 @@
       </div>
 
       <div class="contact-form-container reveal">
-        <form action="#" method="POST" class="contact-form">
+        <form action="./server/send_email.php" method="POST" class="contact-form">
           <h3>Request a Free Quote</h3>
           <div class="form-group">
             <label for="name">Full Name</label>
