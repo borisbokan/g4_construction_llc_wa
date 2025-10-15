@@ -33,17 +33,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // ... (SMTP SERVER SETTINGS - BEZ PROMENA) ...
         $mail->isSMTP();
-        $mail->Host       = 'mail.G4-CONSTRUCTION.com'; // REPLACE
+        $mail->Host       = 'mail.gmail.com'; // REPLACE
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'info@G4-CONSTRUCTION.com';   // REPLACE
-        $mail->Password   = 'YOUR_EMAIL_PASSWORD';     // REPLACE
+        $mail->Username   = 'borisbokan@gmail.com';   // REPLACE
+        $mail->Password   = 'P@rtiz@n1976';     // REPLACE
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
         $mail->Port       = 587; 
         $mail->CharSet    = 'UTF-8'; 
         
         // ... (Recipient i Reply-To - BEZ PROMENA) ...
-        $mail->setFrom('info@G4-CONSTRUCTION.com', 'G4 Website Form'); 
-        $mail->addAddress('info@G4-CONSTRUCTION.com', 'G4 Construction'); 
+        $mail->setFrom('borisbokan@gmail.com', 'G4 Website Form'); 
+        $mail->addAddress('borisbokan@gmail.com', 'G4 Construction'); 
         $mail->addReplyTo($email, $name);
 
         // --- PROMENA: SUBJECT SADA UKLJUČUJE ODABRANU USLUGU ---
