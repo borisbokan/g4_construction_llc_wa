@@ -44,13 +44,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         
-        // ... (Recipient i Reply-To - BEZ PROMENA) ...
-        $mail->setFrom('borisbokan@gmail.com', 'G4 Website Form'); 
-        $mail->addAddress('borisbokan@gmail.com', 'G4 Construction'); 
+       // Sender: MUST BE THE SAME AS $mail->Username for SMTP authentication
+        $mail->setFrom('info@G4-CONSTRUCTION.com', 'G4 Website Form'); 
+        
+        // Recipient: G4 Construction's main contact address
+        $mail->addAddress('info@G4-CONSTRUCTION.com', 'G4 Construction'); // REPLACE: G4's receiving email
+
+        // Reply-To: Set to the visitor's email so you can hit 'Reply' directly
         $mail->addReplyTo($email, $name);
 
-        // --- PROMENA: SUBJECT SADA UKLJUČUJE ODABRANU USLUGU ---
-        $mail->Subject = "NEW INQUIRY (" . $service . ") | From: " . $name;
+        // Subject Line (Email Metadata)
+        $mail->Subject = "NEW WEBSITE INQUIRY | From: " . $name;
+        
         
         // Email Body (sada uključuje i informaciju o usluzi)
         $mail->isHTML(false); 
