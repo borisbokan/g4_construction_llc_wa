@@ -249,7 +249,7 @@ img {
 .hero-section {
   position: relative;
   height: 500px;
-  background: url('../img/hero_placeholder.jpg') no-repeat center center/cover;
+  background: url('../img/hero_placeholder.jpg') no-repeat center bottom/cover;
   display: flex;
   align-items: center;
   justify-content: center;
