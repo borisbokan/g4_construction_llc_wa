@@ -31,15 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // ... (SMTP SERVER SETTINGS - BEZ PROMENA) ...
+         // SMTP SERVER SETTINGS (CRUCIAL PART! REPLACE ALL PLACEHOLDERS!)
+        // This data is obtained from your hosting provider!
         $mail->isSMTP();
-        $mail->Host       = 'mail.gmail.com'; // REPLACE
+        $mail->Host       = 'mail.YOUR_DOMAIN.com'; // REPLACE: SMTP server address (e.g., mail.yourwebsite.com)
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'borisbokan@gmail.com';   // REPLACE
-        $mail->Password   = 'P@rtiz@n1976';     // REPLACE
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
-        $mail->Port       = 587; 
-        $mail->CharSet    = 'UTF-8'; 
+        $mail->Username   = 'contact@YOUR_DOMAIN.com';   // REPLACE: Email address created on your hosting
+        $mail->Password   = 'YOUR_PASSWORD';     // REPLACE: Password for that email account
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Encryption type (often TLS or SSL)
+        $mail->Port       = 587; // Port (often 587 for TLS, 465 for SSL)
+        $mail->CharSet    = 'UTF-8'; // Ensure proper encoding
+
+
         
         // ... (Recipient i Reply-To - BEZ PROMENA) ...
         $mail->setFrom('borisbokan@gmail.com', 'G4 Website Form'); 
