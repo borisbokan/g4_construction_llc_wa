@@ -809,6 +809,7 @@ color: #F0F0F0;
 
   .menu-toggle {
     display: block;
+    color: var(--color-light);
   }
 
   /* Мобилни мени стилови - Активира се само када је отворен */
@@ -818,7 +819,7 @@ color: #F0F0F0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: var(--color-dark);
+    background-color: var(--color-light);
     z-index: 999;
     padding-top: 20px;
     opacity: 0;
