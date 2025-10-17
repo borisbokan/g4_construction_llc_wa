@@ -11,18 +11,19 @@
   --color-primary: #FF7F50;
   /* Наранџасто-корална */
   --color-secondary: #0077b6;
-  /* Плава */
-  --color-text: #333333;
-  /* Тамно сива - За главни текст */
-  --color-light: #f4f4f4;
-  /* Светло сива - За позадине */
+/* НОВЕ ТАМНЕ БОЈЕ: */
+  --color-bg-dark: #121212;
+  /* Најтамнија позадина (Скоро црна) */
+  --color-bg-light: #1F1F1F;
+  /* Позадина секција (Тамно сива) */
+  --color-text-light: #E0E0E0;
+  /* Светли текст (Основна боја текста) */
+  --color-text-dark: #A0A0A0;
+  /* Тамнији сиви текст за опис */
   --color-white: #ffffff;
-  --color-dark: #222222;
-  /* Скоро црна */
+  --color-dark: #2A2A2A;
 
-  /* Фонтови */
-  --font-heading: 'Oswald', sans-serif;
-  --font-body: 'Roboto', sans-serif;
+
 }
 
 /* Основни ресет */
@@ -36,7 +37,11 @@ body {
   font-family: var(--font-body);
   color: var(--color-white);
   line-height: 1.6;
-  background-color: var(--color-white);
+  /* НОВА ОСНОВНА БОЈА ТЕКСТА: Светло сива */
+    color: var(--color-text-light);
+   /* Позадина за Body */
+    background: url('../img/bathroom_bg.jpg') no-repeat fixed center center/cover;
+    position: relative;
   /* Ова боја ће бити прекривена сликом */
 
   /* НОВА ПОЗАДИНА ЗА ЦЕО САДРЖАЈ */
@@ -54,13 +59,13 @@ body::before {
   height: 100%;
   z-index: -2;
 
-  filter: blur(5px);
-  transform: scale(1.02);
+  /* Додаћемо БЛУР и СЕПИЈА/СИВУ ФИЛТЕР да уклонимо живе боје */
+    filter: blur(5px) grayscale(50%) brightness(0.7); 
+    transform: scale(1.02); 
 
-  /* КОРЕКЦИЈА: Појачавамо прозирност са 0.1 на 0.5 (полу-тамно) */
-  background-color: rgba(255, 127, 80, 0.5);
-  /* 50% наранџасте */
-  background-blend-mode: multiply;
+    /* ВЕОМА ТАМНИ, ЕЛЕГАНТАН ПРЕКРИВАЧ */
+    background-color: rgba(18, 18, 18, 0.6); /* #121212 са 90% непрозирности */
+    background-blend-mode: multiply;
 }
 
 h1,
@@ -136,12 +141,12 @@ img {
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background-color: var(--color-dark);
   color: var(--color-white);
 }
 
 .btn-primary:hover {
-  background-color: #ff6347;
+  background-color: var(--color-dark);
 }
 
 .btn-secondary {
@@ -163,8 +168,8 @@ img {
    3. HEADER
 ---------------------------------------------------------------- */
 .main-header {
-  background-color: var(--color-white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  background-color: var(--color-bg-light);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -201,12 +206,12 @@ img {
   text-transform: uppercase;
   padding: 5px 0;
   position: relative;
-  color: var(--color-dark);
+  color: var(--color-text-dark);
 }
 
 .main-nav a:hover,
 .main-nav a.active {
-  color: var(--color-primary);
+  color: var(--color-text-light);
     
 }
 
@@ -217,13 +222,13 @@ img {
   bottom: -5px;
   width: 100%;
   height: 3px;
-  background-color: var(--color-primary);
+  background-color: var(--color-text-dark);
 }
 
 .header-contact .phone-link {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-text-light);
 }
 
 .header-contact .phone-link:hover {
@@ -305,9 +310,9 @@ color: #F0F0F0;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* .services-preview {
-  background-color: var(--color-light);
-} */
+.services-preview {
+background-color: rgba(30, 30, 30, 0.6);
+}
 
 /* SERVICES PREVIEW STYLES */
 .services-preview {
@@ -320,6 +325,7 @@ color: #F0F0F0;
   /* Враћен padding, ако је нестао */
   z-index: 1;
   /* Осигурава да садржај буде изнад позадине */
+  background-color: rgba(30, 30, 30, 0.6);
 }
 
 
@@ -335,25 +341,26 @@ color: #F0F0F0;
 .service-item {
   padding: 30px 20px;
   /* Променимо да буде делимично прозирно и са белим текстом */
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Тамна позадина */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  /* Јача сенка */
   /* Скоро бела, да пропушта мало позадине */
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
 }
 
 /* Такође, подеси боју за наслов и иконе да буду тамне, ради контраста */
 .service-item i {
   font-size: 2.5rem;
-  color: var(--color-primary);
-  /* Наранџаста */
+  color: var(--color-text-dark);
   margin-bottom: 15px;
 }
 
 .service-item h3 {
   margin-bottom: 10px;
-  color: var(--color-dark);
-  /* Тамна боја */
+  color: var(--color-text-light);
+  
 }
 
 /* Можда ћеш морати да промениш и боју главног наслова секције */
@@ -386,12 +393,12 @@ color: #F0F0F0;
   padding: 25px;
   border-radius: 8px;
   text-align: center;
-  border-left: 5px solid var(--color-primary);
+  border-left: 5px solid var(--color-light);
 }
 
 .icon-quote {
   font-size: 2rem;
-  color: var(--color-primary);
+  color: var(--color-light);
   margin-bottom: 15px;
 }
 
@@ -409,7 +416,7 @@ color: #F0F0F0;
 }
 
 .review-stars i {
-  color: gold;
+  color: rgba(209, 181, 24, 0.493);
   font-size: 1rem;
 }
 
@@ -419,7 +426,7 @@ color: #F0F0F0;
 .page-intro {
   padding: 80px 0;
   text-align: center;
-  border-bottom: 5px solid var(--color-primary);
+  border-bottom: 5px solid var(--color-text-dark);
 }
 
 .page-intro .page-title {
@@ -439,17 +446,16 @@ color: #F0F0F0;
   max-width: 800px;
   margin: 0 auto;
   padding: 40px;
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--color-light);
   border-radius: 10px;
-  /* КОРИСТИМО ПОЛУ-ПРОЗИРНУ БЕЛУ ЗА ЧИТЉИВОСТ */
-  background-color: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1;
 }
 
 .prep-box h2 {
-  color: var(--color-secondary);
+  color: var(--color-text-light);
   margin-top: 20px;
   font-size: 2rem;
 }
@@ -462,7 +468,7 @@ color: #F0F0F0;
 
 .icon-huge {
   font-size: 4rem;
-  color: var(--color-primary);
+  color: var(--color-light);
 }
 
 /* ----------------------------------------------------------------
@@ -489,7 +495,7 @@ color: #F0F0F0;
   text-align: center;
   font-style: italic;
   margin-top: 10px;
-  color: var(--color-dark);
+  color: var(--color-light);
 }
 
 .gallery-grid {
@@ -622,7 +628,7 @@ color: #F0F0F0;
 
 .info-item .icon-primary {
   font-size: 1.5rem;
-  color: var(--color-secondary);
+  color: var(--color-text-dark);
   margin-right: 15px;
   min-width: 30px;
   text-align: center;
@@ -634,23 +640,22 @@ color: #F0F0F0;
 }
 
 .info-item a {
-  color: var(--color-secondary);
+  color: var(--color-text-dark);
   font-weight: bold;
 }
 
 .contact-form-container {
   padding: 30px;
-  /* ПОЛУ-ПРОЗИРНА БЕЛА ЗА ЧИТЉИВОСТ */
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: var(--color-bg-light);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 1;
 }
 
 .contact-form h3 {
   text-align: center;
-  color: var(--color-primary);
+  color: var(--color-light);
   /* color: var(--color-white); */
     margin-bottom: 30px;
 }
@@ -667,7 +672,7 @@ color: #F0F0F0;
   display: block;
   font-weight: 700;
   margin-bottom: 5px;
-  color: var(--color-primary);
+  color: var(--color-light);
 }
 
 .form-group input,
@@ -675,11 +680,12 @@ color: #F0F0F0;
 .form-group textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
-  color: var(--color-dark);
-    background-color: var(--color-white);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-text-dark);
+ 
 }
 
 .form-note {
@@ -700,11 +706,13 @@ color: #F0F0F0;
    9. FOOTER
 ---------------------------------------------------------------- */
 .main-footer {
-  background-color: var(--color-dark);
+  background-color: var(--color-bg-dark);
+  /* Најтамнија позадина */
+  color: var(--color-text-light);
   color: var(--color-white);
   padding: 40px 0 20px 0;
   font-size: 0.9rem;
-  border-top: 5px solid var(--color-primary);
+  border-top: 5px solid var(--color-text-dark);
 }
 
 .footer-grid {
@@ -714,7 +722,7 @@ color: #F0F0F0;
 }
 
 .main-footer h4 {
-  color: var(--color-primary);
+  color: var(--color-text-dark);
   margin-bottom: 15px;
   font-size: 1.2rem;
 }
@@ -726,11 +734,11 @@ color: #F0F0F0;
 }
 
 .footer-contact a {
-  color: var(--color-white);
+  color: var(--color-text-dark);
 }
 
 .footer-contact a:hover {
-  color: var(--color-primary);
+  color: var(--color-text-light);
 }
 
 .footer-links li {
@@ -743,7 +751,9 @@ color: #F0F0F0;
 }
 
 .footer-links a:hover {
-  color: var(--color-primary);
+  color: var(--color-dark);
+  background-color: var(--color-text-light);
+  padding: 3px;
 }
 
 
@@ -830,7 +840,7 @@ color: #F0F0F0;
   }
 
   .main-nav a {
-    color: var(--color-white);
+    color: var(--color-text-light);
     font-size: 1.5rem;
   }
 
@@ -894,6 +904,10 @@ color: #F0F0F0;
   /* Подеси висину логотипа у хедеру */
 }
 
+.logo{
+  color: var(--color-text-light);
+}
+
 .logo-image-container .logo-img {
   height: 100%;
   width: auto;
@@ -908,7 +922,7 @@ color: #F0F0F0;
 
     /* PHOTO GALLERY SECTION */
     .gallery-section {
-      /* background-color: var(--color-light); <--- УКЛОНИ ОВО */
+      background-color: rgba(30, 30, 30, 0.6);
       padding: 80px 0;
       position: relative;
       z-index: 1;
