@@ -697,7 +697,7 @@ color: #F0F0F0;
 
 .map-embed {
   margin-top: 30px;
-  border: 5px solid var(--color-primary);
+  border: 5px solid var(--color-text-dark);
   border-radius: 8px;
   overflow: hidden;
 }
