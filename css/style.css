@@ -929,7 +929,142 @@ color: #F0F0F0;
       z-index: 1;
     }
 
+/* ----------------------------------------------------------------
+   10. SLIDER STYLES (NOVO)
+---------------------------------------------------------------- */
 
+/* Основна структура слајдера */
+.horizontal-slider {
+  position: relative;
+  margin: 40px 0;
+}
+
+/* Контејнер који омогућава хоризонтално листање */
+.slider-track {
+  display: flex;
+  gap: 20px;
+  /* Размак између ставки */
+  overflow-x: auto;
+  /* Омогућава хоризонтално скроловање */
+  padding-bottom: 20px;
+  /* Простор за скролбар */
+
+  /* Скрол снаппинг за глаткије листање */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* Боље на iOS-у */
+}
+
+/* Појединачне ставке унутар слајдера */
+.slider-track .slider-item {
+  flex: 0 0 300px;
+  /* Свака ставка је широка 300px */
+  scroll-snap-align: start;
+  /* Снап на почетак ставке */
+
+  /* Све ставке морају имати исту висину */
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Специфични стилови за видео ставке */
+.video-slider .slider-item {
+  flex: 0 0 320px;
+  /* Нешто шире за видео */
+  height: 280px;
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-dark);
+}
+
+.video-slider .slider-item iframe {
+  width: 100%;
+  height: 200px;
+  /* Простор за видео */
+}
+
+.video-caption {
+  padding: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+/* Специфични стилови за слике */
+.image-slider .slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Наслов групе слика */
+.gallery-group-title {
+  color: var(--color-text-light);
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+
+/* СТИЛОВИ ЗА СТРЕЛИЦЕ (Као у Mockupu) */
+.horizontal-slider::before,
+.horizontal-slider::after {
+  content: '\276E';
+  /* HTML код за леву стрелицу */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 24px;
+  background-color: rgba(30, 30, 30, 0.7);
+  /* Тамна, полу-провидна позадина */
+  color: var(--color-text-light);
+  /* Наранџаста стрелица */
+  border-radius: 50%;
+  cursor: default;
+  /* Онемогући клик, јер не имплементирамо JS функционалност */
+  z-index: 10;
+  pointer-events: none;
+  /* Осигурава да не блокира скроловање */
+  opacity: 0.8;
+}
+
+.horizontal-slider::before {
+  left: -50px;
+}
+
+.horizontal-slider::after {
+  content: '\276F';
+  /* HTML код за десну стрелицу */
+  right: -50px;
+}
+
+/* КОНТЕЈНЕР ОКО СЛИКЕ И НАПИСА */
+.gallery-item-container {
+  /* Напомена: Овај контејнер сада има ширину и висину 
+       (која је претходно била на a.gallery-item) */
+  flex: 0 0 calc(33.333% - 13.333px);
+  scroll-snap-align: start;
+  height: 250px;
+  /* Укупна висина контејнера */
+
+  /* Ово осигурава да натпис буде на дну */
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-bg-light);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
     
 
 /* Крај НОВИХ СТИЛОВА */

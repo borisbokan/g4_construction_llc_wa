@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             caption: item.getAttribute('data-caption'),
             index: index
         });
+
     });
 
     // Функција за отварање LightBox-а
@@ -80,6 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', function(e) {
             e.preventDefault(); 
             openLightbox(index);
+            const captionText = this.getAttribute('data-caption');
+        document.getElementById('lightbox-caption').textContent = captionText;
         });
     });
 
