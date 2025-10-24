@@ -289,12 +289,45 @@ img {
   color: var(--color-light);
 }
 
-.about-grid {
+/* Stilovi za About sekciju nakon uklanjanja slike */
+
+/* Osigurava da se ceo tekst raširi */
+.about-text.full-width-text {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Osnovna veličina fonta i linija za paragrafe u about-text */
+.about-text p {
+  font-size: 1.15rem;
+  /* Nešto veće */
+  line-height: 1.8;
+  /* Veći razmak između linija za bolju čitljivost */
+  font-family: 'Roboto', sans-serif;
+  /* Standardni i razumljiv font */
+  margin-bottom: 1.5em;
+  /* Razmak između paragrafa */
+}
+
+/* Stil za uvlačenje novih paragrafa (kao 2 taba) */
+.about-text .indented-paragraph {
+  text-indent: 4rem;
+  /* Oko 2 puta veće od standardnog uvlačenja (npr. 2x 2em) */
+}
+
+/* Poseban stil za naslovnu rečenicu (ako postoji) */
+.about-text .about-lead {
+  font-size: 1.25rem;
+  /* Još veće za glavnu rečenicu */
+  font-weight: 500;
+}
+
+/* .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
-}
+} */
 
 .about-text h2 {
   text-align: left;
