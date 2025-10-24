@@ -289,64 +289,65 @@ img {
   color: var(--color-light);
 }
 
-/* Stilovi za About sekciju nakon uklanjanja slike */
+/* ====================================================================== */
+/* STILOVI ZA ABOUT SEKCIJU */
+/* ====================================================================== */
 
-/* Osigurava da se ceo tekst raširi */
-.about-text.full-width-text {
-  width: 100%;
-  max-width: 100%;
-}
-
-/* Osnovna veličina fonta i linija za paragrafe u about-text */
+/* Osnovna veličina fonta za veće ekrane (desktop) */
 .about-text p {
-  font-size: 1.15rem;
-  /* Nešto veće */
+  /* Koristimo veću rem vrednost za desktop i dobar line-height za čitljivost */
+  font-size: 1.35rem;
   line-height: 1.8;
-  /* Veći razmak između linija za bolju čitljivost */
   font-family: 'Roboto', sans-serif !important;
-  /* Standardni i razumljiv font */
   margin-bottom: 1.5em;
-  /* Razmak između paragrafa */
 }
 
-/* Font za naslov (ako ga želite drugačije, npr. Oswald) */
-.about-text h2,
-.about-text h3 {
-  font-family: 'Oswald', sans-serif;
+/* Poseban stil za naslovnu rečenicu (ako postoji) */
+.about-text .about-lead {
+  font-size: 1.5rem;
+  /* Još veće za glavnu rečenicu na desktopu */
+  font-weight: 500;
 }
 
 /* Stil za uvlačenje novih paragrafa (kao 2 taba) */
 .about-text .indented-paragraph {
   text-indent: 4rem;
-  /* Oko 2 puta veće od standardnog uvlačenja (npr. 2x 2em) */
 }
 
-/* Poseban stil za naslovnu rečenicu (ako postoji) */
-.about-text .about-lead {
-  font-size: 1.25rem;
-  /* Još veće za glavnu rečenicu */
-  font-weight: 500;
+
+/* -- MEDIA QUERIES ZA SMANJENJE NA TABLET I MOBILNI -- */
+
+/* Smanjujemo veličinu fonta za ekrane manje od 992px (npr. tablet) */
+@media (max-width: 992px) {
+  .about-text p {
+    font-size: 1.15rem;
+  }
+
+  .about-text .about-lead {
+    font-size: 1.3rem;
+  }
+
+  .about-text .indented-paragraph {
+    text-indent: 3rem;
+    /* Manje uvlačenje na manjim ekranima */
+  }
 }
 
-/* .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-} */
+/* Smanjujemo veličinu fonta za ekrane manje od 576px (npr. mobilni) */
+@media (max-width: 576px) {
+  .about-text p {
+    font-size: 1.0rem;
+    line-height: 1.7;
+  }
 
-.about-text h2 {
-  text-align: left;
-color: #F0F0F0;
-}
+  .about-text .about-lead {
+    font-size: 1.15rem;
+  }
 
-.about-image img {
-  width: 100%;
-  max-height: 470px;
-  align-content: start;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  .about-text .indented-paragraph {
+    text-indent: 2rem;
+    /* Još manje uvlačenje */
+  }
 }
 
 .services-preview {
