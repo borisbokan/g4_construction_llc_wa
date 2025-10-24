@@ -1067,4 +1067,86 @@ color: #F0F0F0;
 }
     
 
+/* ====================================================================== */
+/* STILOVI ZA SERVICES.HTML KARTICE */
+/* ====================================================================== */
+
+/* Primena lepšeg fonta (ako već nije definisan u body stilu) */
+/* body {
+    font-family: 'Roboto', sans-serif; 
+} */
+
+/* Veći Padding i Veličina Kartice */
+.service-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 15px;
+  /* Dodatni padding na samoj kartici */
+  /* Uklanjamo border-0 iz HTML-a i stavljamo u CSS ako želite isti stil */
+  /* border: none; */
+}
+
+/* Hover efekat */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Veći naslov usluge */
+.service-card .card-title {
+  font-family: 'Oswald', sans-serif;
+  /* Koristimo Oswald za isticanje naslova */
+  font-size: 1.5rem;
+  /* Povećavamo font */
+  margin-bottom: 1rem;
+  display: flex;
+  /* Za poravnanje ikone i teksta */
+  align-items: center;
+}
+
+/* Veća slova za opis usluge */
+.service-card .card-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+
+/* STILIZACIJA IKONICA (Sivi Gradijent Pozadina, Bele Ikone) */
+.service-card .card-title i {
+  border-radius: 50%;
+  /* Siva Gradijent Pozadina - Možete prilagoditi nijanse sive */
+  background: linear-gradient(135deg, #4a4a4a, #6c757d);
+  /* Od tamnije do svetlije sive */
+  color: white;
+  /* Boja same ikone je bela */
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-right: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Malo jači senka za bolji efekat */
+}
+
+/* Stil za naslove kategorija */
+.category-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  border-bottom: 2px solid #0d6efd;
+  /* Primer linije ispod naslova */
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-top: 20px;
+}
+
+/* Boja opisa kategorije (koja je u HTML-u klasa .lead) */
+.services-content .lead {
+  color: white !important;
+  /* FIKSIRANJE BOJE TEKSTA */
+}
+
+/* FIKSIRANJE BOJE ZA CTA DUGME NA SERVICES STRANICI */
+.services-content .btn-cta {
+  /* Menjamo boju teksta unutar dugmeta u belu ili drugu kontrastnu boju */
+  color: white !important;
+
+}
+
 /* Крај НОВИХ СТИЛОВА */
