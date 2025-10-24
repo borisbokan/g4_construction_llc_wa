@@ -303,10 +303,16 @@ img {
   /* Nešto veće */
   line-height: 1.8;
   /* Veći razmak između linija za bolju čitljivost */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
   /* Standardni i razumljiv font */
   margin-bottom: 1.5em;
   /* Razmak između paragrafa */
+}
+
+/* Font za naslov (ako ga želite drugačije, npr. Oswald) */
+.about-text h2,
+.about-text h3 {
+  font-family: 'Oswald', sans-serif;
 }
 
 /* Stil za uvlačenje novih paragrafa (kao 2 taba) */
