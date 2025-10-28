@@ -509,7 +509,7 @@ img {
 }
 
 /* ----------------------------------------------------------------
-   7. GALLERY PAGE STYLES (Grid & LightBox) - FIKSIRANO
+   7. GALLERY PAGE STYLES (Grid & LightBox) - AŽURIRANO ZA CENTRIRANJE
 ---------------------------------------------------------------- */
 .video-highlights {
   margin-bottom: 60px;
@@ -562,77 +562,108 @@ img {
   transform: scale(1.05);
 }
 
-/* LIGHTBOX (МОДАЛ) */
+/* LIGHTBOX (МОДАЛ) - NOVI STILOVI ZA CENTRIRANJE */
 .lightbox {
   display: none;
+  /* Inicijalno sakriven, JS ga prikazuje */
   position: fixed;
   z-index: 9000 !important;
-  /* POVEĆANO RADI SIGURNOSTI */
-  padding-top: 50px;
+  /* Visok z-index */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  /* Sprečava skrolovanje pozadine */
 }
 
+/* Kontejner za sliku i caption koji će biti centriran */
+.lightbox-inner {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* KLJUČNA IZMENA: Povećavamo maksimalnu veličinu na 98% */
+    max-width: 98%;
+    max-height: 98vh;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+
 .lightbox-content {
-  margin: auto;
-  display: block;
-  width: 90%;
-  max-width: 900px;
-  max-height: 80vh;
+display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  /* Da ne prelazi unutrašnji kontejner (98% ekrana) */
+  /* KLJUČNA IZMENA: Povećavamo raspoloživu visinu */
+  max-height: 90vh;
   object-fit: contain;
+  margin: 0;
 }
 
 .lightbox-caption {
-  margin: auto;
   display: block;
-  width: 80%;
+  width: 100%;
+  /* Zauzima punu širinu inner kontejnera */
   text-align: center;
   color: var(--color-white);
   padding: 10px 0;
-  height: 50px;
+  height: auto;
+  font-size: 1.1rem;
 }
 
+/* Close dugme */
 .lightbox-close {
   position: absolute;
   top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
+  right: 15px;
+  color: #ffc107 !important;
+  /* Žuta boja */
+  font-size: 45px;
+  /* Malo veće */
   font-weight: bold;
-  transition: 0.3s;
   cursor: pointer;
   z-index: 9002 !important;
-  /* Iznad strelica i svega */
+  transition: 0.3s;
 }
 
 .lightbox-close:hover,
 .lightbox-close:focus {
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
+  text-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
 }
 
-/* Carousel дугмад - КЉУЧНИ ФИКС ЗА ВИДЉИВОСТ */
+/* Navigacione strelice */
 .lightbox-prev,
 .lightbox-next {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
+  transform: translateY(-50%);
+  /* Vertikalno centriranje */
+  width: 60px;
+  /* Šira površina za klik */
+  height: 100px;
+  /* Viša površina za klik */
+  color: #ffc107 !important;
+  /* Žuta boja */
+  font-size: 45px !important;
+  /* Veće ikone */
   font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Pozadina za bolju vidljivost */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Malo tamnija pozadina */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s;
   z-index: 9001 !important;
-  /* Iznad slike i celog lightbox-a */
+  /* Iznad slike, ispod close dugmeta */
 }
 
 .lightbox-next {
@@ -640,9 +671,15 @@ img {
   border-radius: 3px 0 0 3px;
 }
 
+.lightbox-prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
 .lightbox-prev:hover,
 .lightbox-next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+  color: var(--color-white) !important;
 }
 
 /* ----------------------------------------------------------------
@@ -1142,6 +1179,68 @@ img {
 }
 
 /* ====================================================================== */
+/* RESPONSIVE FIKS: LIGHTBOX ZA MOBILNE UREĐAJE */
+/* ====================================================================== */
+/* ====================================================================== */
+/* RESPONSIVE FIKS 2.0: LIGHTBOX ZA MAKSIMALNU VELIČИНУ SLIKE NA MOBILNOM */
+/* ====================================================================== */
+@media (max-width: 768px) {
+
+  /* 1. Lightbox (CEO PROZOR): Uklanjamo overflow da ne bi pravio probleme */
+  .lightbox {
+    overflow: hidden !important;
+  }
+
+  /* 2. Lightbox INNER: Kontejner koji CENTRIRA SADRŽAJ */
+  .lightbox-inner {
+    /* Prisiljavamo ga na punu širinu sa minimalnim razmakom */
+    max-width: 100%;
+    width: 100%;
+    max-height: 100vh;
+    /* Uklanjamo padding da ne smanjuje sliku */
+    padding: 0;
+  }
+
+  /* 3. Lightbox CONTENT (SAMA SLIKA) */
+  .lightbox-content {
+    /* Prisiljavamo sliku da zauzme punu širinu inner kontejnera */
+    max-width: 100% !important;
+    max-height: 90vh !important;
+    /* Dajemo joj skoro celu visinu ekrana */
+
+    /* Centriranje u odnosu na preostali prostor u inner-u (ako je slika manja) */
+    margin: 0 auto;
+  }
+
+  /* 4. Lightbox CAPTION (Natpis) */
+  .lightbox-caption {
+    padding: 5px 10px;
+    /* Smanjujemo padding */
+    font-size: 0.85rem;
+    /* Smanjujemo font */
+  }
+
+  /* 5. Lightbox KONTROLE (Strelice) */
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 35px !important;
+    width: 40px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Smanjujemo neprozirnost pozadine da bi slika bila vidljivija */
+    background-color: rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* 6. Dugme za zatvaranje */
+  .lightbox-close {
+    top: 10px !important;
+    right: 10px !important;
+    font-size: 35px !important;
+  }
+}
+
+/* ====================================================================== */
 /* STILOVI ZA SERVICES.HTML KARTICE */
 /* ====================================================================== */
 
@@ -1216,47 +1315,35 @@ img {
 }
 
 /* ====================================================================== */
-/* ULTIMATIVNI FIKS ZA LIGHTBOX STRELICE */
+/* ULTIMATIVNI FIKS ZA LIGHTBOX STRELICE (Prilagođeno novom centru) */
 /* ====================================================================== */
 
-/* Osiguravamo da je tekstualni sadržaj (simbol strelice) vidljiv */
-.lightbox-prev,
+/* Ovi stilovi su sada redundantni ili pregaženi zbog novog pristupa,
+   ali ih ostavljamo ovde sa komentarima za referencu */
+
+/* .lightbox-prev,
 .lightbox-next {
-  /* Dodajemo boju i senku za ekstremnu vidljivost */
   color: #ffc107 !important;
-  /* Promenimo u žutu za test */
   text-shadow: 0 0 5px #000000;
-
-  /* Povećavamo veličinu fonta (simbola) */
   font-size: 40px !important;
-
-  /* Povećavamo z-index ponovo */
   z-index: 99999 !important;
-
-  /* Osiguravamo da su centrirane vertikalno */
   line-height: 1;
   top: 50% !important;
   transform: translateY(-50%);
-  /* Dodajemo transform za precizno centriranje */
   margin-top: 0 !important;
-  /* Uklanjamo stari margin-top */
-
-  /* Osiguravamo da su klikabilne */
   width: 50px;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-/* FIKS ZA POZICIJU CLOSE DUGMETA */
-.lightbox-close {
+/* .lightbox-close {
   z-index: 99999 !important;
   color: #ffc107 !important;
   top: 50px !important;
-}
+} */
 
-/* FIKS ZA CEO LIGHTBOX */
-.lightbox {
+/* .lightbox {
   z-index: 99990 !important;
-}
+} */
