@@ -11,7 +11,7 @@
   --color-primary: #FF7F50;
   /* Наранџасто-корална */
   --color-secondary: #0077b6;
-/* НОВЕ ТАМНЕ БОЈЕ: */
+  /* НОВЕ ТАМНЕ БОЈЕ: */
   --color-bg-dark: #121212;
   /* Најтамнија позадина (Скоро црна) */
   --color-bg-light: #1F1F1F;
@@ -22,8 +22,6 @@
   /* Тамнији сиви текст за опис */
   --color-white: #ffffff;
   --color-dark: #2A2A2A;
-
-
 }
 
 /* Основни ресет */
@@ -38,12 +36,10 @@ body {
   color: var(--color-white);
   line-height: 1.6;
   /* НОВА ОСНОВНА БОЈА ТЕКСТА: Светло сива */
-    color: var(--color-text-light);
-   /* Позадина за Body */
-    background: url('../img/bathroom_bg.jpg') no-repeat fixed center center/cover;
-    position: relative;
-  /* Ова боја ће бити прекривена сликом */
-
+  color: var(--color-text-light);
+  /* Позадина за Body */
+  background: url('../img/bathroom_bg.jpg') no-repeat fixed center center/cover;
+  position: relative;
   /* НОВА ПОЗАДИНА ЗА ЦЕО САДРЖАЈ */
   background: url('../img/bathroom_bg.jpg') no-repeat fixed center center/cover;
   position: relative;
@@ -60,12 +56,13 @@ body::before {
   z-index: -2;
 
   /* Додаћемо БЛУР и СЕПИЈА/СИВУ ФИЛТЕР да уклонимо живе боје */
-    filter: blur(5px) grayscale(50%) brightness(0.7); 
-    transform: scale(1.02); 
+  filter: blur(5px) grayscale(50%) brightness(0.7);
+  transform: scale(1.02);
 
-    /* ВЕОМА ТАМНИ, ЕЛЕГАНТАН ПРЕКРИВАЧ */
-    background-color: rgba(18, 18, 18, 0.6); /* #121212 са 90% непрозирности */
-    background-blend-mode: multiply;
+  /* ВЕОМА ТАМНИ, ЕЛЕГАНТАН ПРЕКРИВАЧ */
+  background-color: rgba(18, 18, 18, 0.6);
+  /* #121212 са 90% непрозирности */
+  background-blend-mode: multiply;
 }
 
 h1,
@@ -212,7 +209,7 @@ img {
 .main-nav a:hover,
 .main-nav a.active {
   color: var(--color-text-light);
-    
+
 }
 
 .main-nav a.active::after {
@@ -351,7 +348,7 @@ img {
 }
 
 .services-preview {
-background-color: rgba(30, 30, 30, 0.6);
+  background-color: rgba(30, 30, 30, 0.6);
 }
 
 /* SERVICES PREVIEW STYLES */
@@ -400,7 +397,7 @@ background-color: rgba(30, 30, 30, 0.6);
 .service-item h3 {
   margin-bottom: 10px;
   color: var(--color-text-light);
-  
+
 }
 
 /* Можда ћеш морати да промениш и боју главног наслова секције */
@@ -471,7 +468,7 @@ background-color: rgba(30, 30, 30, 0.6);
 
 .page-intro .page-title {
   font-size: 3rem;
-color: #F0F0F0;
+  color: #F0F0F0;
   text-transform: uppercase;
 }
 
@@ -512,7 +509,7 @@ color: #F0F0F0;
 }
 
 /* ----------------------------------------------------------------
-   7. GALLERY PAGE STYLES (Grid & LightBox)
+   7. GALLERY PAGE STYLES (Grid & LightBox) - FIKSIRANO
 ---------------------------------------------------------------- */
 .video-highlights {
   margin-bottom: 60px;
@@ -544,6 +541,7 @@ color: #F0F0F0;
   gap: 20px;
 }
 
+/* Ovi stilovi su zastareli zbog nove HTML strukture, ali ih ostavljamo */
 .gallery-item {
   display: block;
   cursor: pointer;
@@ -568,7 +566,8 @@ color: #F0F0F0;
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 2000;
+  z-index: 9000 !important;
+  /* POVEĆANO RADI SIGURNOSTI */
   padding-top: 50px;
   left: 0;
   top: 0;
@@ -606,6 +605,8 @@ color: #F0F0F0;
   font-weight: bold;
   transition: 0.3s;
   cursor: pointer;
+  z-index: 9002 !important;
+  /* Iznad strelica i svega */
 }
 
 .lightbox-close:hover,
@@ -613,11 +614,12 @@ color: #F0F0F0;
   color: var(--color-primary);
 }
 
-/* Carousel дугмад */
+/* Carousel дугмад - КЉУЧНИ ФИКС ЗА ВИДЉИВОСТ */
 .lightbox-prev,
 .lightbox-next {
   cursor: pointer;
   position: absolute;
+  /* KLJUČNO */
   top: 50%;
   width: auto;
   padding: 16px;
@@ -628,6 +630,10 @@ color: #F0F0F0;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Pozadina za bolju vidljivost */
+  z-index: 9001 !important;
+  /* Iznad slike i celog lightbox-a */
 }
 
 .lightbox-next {
@@ -697,10 +703,10 @@ color: #F0F0F0;
   text-align: center;
   color: var(--color-light);
   /* color: var(--color-white); */
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
-.contact-info h2{
+.contact-info h2 {
   color: var(--color-white);
 }
 
@@ -725,7 +731,7 @@ color: #F0F0F0;
   background-color: var(--color-bg-dark);
   color: var(--color-text-light);
   border: 1px solid var(--color-text-dark);
- 
+
 }
 
 .form-note {
@@ -830,7 +836,89 @@ color: #F0F0F0;
 }
 
 /* ----------------------------------------------------------------
-   11. RESPONSIVE DESIGN (МЕДИЈСКИ УПИТИ - ФИКСИРАНО)
+   11. SLIDER STYLES (FIKSIRANO)
+---------------------------------------------------------------- */
+
+/* Osnovna struktura slajdera */
+.horizontal-slider {
+  position: relative;
+  margin: 40px 0;
+}
+
+/* Kontejner koji omogućava horizontalno listanje */
+.slider-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll !important;
+  /* FIKS: Osigurava da skrol radi */
+  padding-bottom: 20px;
+
+  /* Ključno za responzivnost i glatko skrolovanje */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
+}
+
+/* Pojedinačne stavke unutar slajdera - DESKTOP STILOVI */
+.slider-track .slider-item {
+  /* Fiksna širina i visina za desktop */
+  flex: 0 0 300px;
+  height: 250px;
+
+  scroll-snap-align: start;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Osigurava da slika zauzme ceo kontejner i zadrži proporcije */
+.slider-track .slider-item img,
+.gallery-item-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* KLJUČNO: Održava proporcije i ispunjava prostor */
+}
+
+/* Slična korekcija i za video slider */
+.video-slider .slider-track .slider-item {
+  flex: 0 0 320px;
+  height: 280px;
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-dark);
+}
+
+.video-slider .slider-item iframe {
+  width: 100%;
+  height: 200px;
+}
+
+/* KONTEJNER OKO SLIKE I NAPISA */
+.gallery-item-container {
+  /* Override: Preuzima flex i height od .slider-item */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-light);
+}
+
+.gallery-item-container .gallery-link {
+  /* Link koji sadrži sliku */
+  display: block;
+  height: 100%;
+  /* Da link popuni ceo prostor namenjen slici */
+}
+
+.gallery-caption-footer {
+  padding: 10px 10px 5px;
+  text-align: center;
+  /* Dajemo mu fiksnu visinu da ne menja visinu kontejnera kada se menja tekst */
+  height: 50px;
+}
+
+/* ----------------------------------------------------------------
+   12. RESPONSIVE DESIGN (МЕДИЈСКИ УПИТИ - ФИКСИРАНО)
 ---------------------------------------------------------------- */
 @media (max-width: 992px) {
 
@@ -915,6 +1003,30 @@ color: #F0F0F0;
   }
 }
 
+@media (max-width: 768px) {
+
+  /* FIKS ZA SLIDER - MOBILE */
+  .slider-track {
+    gap: 0;
+  }
+
+  /* Povećavamo visinu stavke na mobilnom */
+  .slider-track .slider-item,
+  .gallery-item-container {
+    /* KLJUČNO: Prikazuje SAMO jednu sliku, punom širinom */
+    flex: 0 0 100%;
+    width: 100%;
+    height: 280px;
+    /* Nešto viša visina */
+  }
+
+  /* Ako želite razmak između slika na mobilnom, dodajte ga kontejneru */
+  .gallery-section .slider-track {
+    padding: 0 20px 20px;
+    gap: 15px;
+  }
+}
+
 @media (max-width: 576px) {
 
   .section-padding {
@@ -936,6 +1048,10 @@ color: #F0F0F0;
   .page-intro .page-title {
     font-size: 2rem;
   }
+
+  .logo-image-container {
+    height: 30px;
+  }
 }
 
 /* НОВИ СТИЛОВИ ЗА ЛОГОТИП СЛИКУ */
@@ -945,7 +1061,7 @@ color: #F0F0F0;
   /* Подеси висину логотипа у хедеру */
 }
 
-.logo{
+.logo {
   color: var(--color-text-light);
 }
 
@@ -954,175 +1070,23 @@ color: #F0F0F0;
   width: auto;
 }
 
-/* На мобилном */
-@media (max-width: 992px) {
-  .logo-image-container {
-    height: 30px;
-  }
-}
 
-    /* PHOTO GALLERY SECTION */
-    .gallery-section {
-      background-color: rgba(30, 30, 30, 0.6);
-      padding: 80px 0;
-      position: relative;
-      z-index: 1;
-    }
-
-/* ----------------------------------------------------------------
-   10. SLIDER STYLES (NOVO)
----------------------------------------------------------------- */
-
-/* Основна структура слајдера */
-.horizontal-slider {
+/* PHOTO GALLERY SECTION */
+.gallery-section {
+  background-color: rgba(30, 30, 30, 0.6);
+  padding: 80px 0;
   position: relative;
-  margin: 40px 0;
+  z-index: 1;
 }
-
-/* Контејнер који омогућава хоризонтално листање */
-.slider-track {
-  display: flex;
-  gap: 20px;
-  /* Размак између ставки */
-  overflow-x: auto;
-  /* Омогућава хоризонтално скроловање */
-  padding-bottom: 20px;
-  /* Простор за скролбар */
-
-  /* Скрол снаппинг за глаткије листање */
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  /* Боље на iOS-у */
-}
-
-/* Појединачне ставке унутар слајдера */
-.slider-track .slider-item {
-  flex: 0 0 300px;
-  /* Свака ставка је широка 300px */
-  scroll-snap-align: start;
-  /* Снап на почетак ставке */
-
-  /* Све ставке морају имати исту висину */
-  height: 250px;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Специфични стилови за видео ставке */
-.video-slider .slider-item {
-  flex: 0 0 320px;
-  /* Нешто шире за видео */
-  height: 280px;
-  background-color: var(--color-bg-light);
-  border: 1px solid var(--color-dark);
-}
-
-.video-slider .slider-item iframe {
-  width: 100%;
-  height: 200px;
-  /* Простор за видео */
-}
-
-.video-caption {
-  padding: 10px;
-  font-size: 0.9rem;
-  text-align: center;
-  color: var(--color-text-light);
-}
-
-/* Специфични стилови за слике */
-.image-slider .slider-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Наслов групе слика */
-.gallery-group-title {
-  color: var(--color-text-light);
-  font-size: 1.5rem;
-  margin-top: 40px;
-  margin-bottom: 15px;
-  padding-left: 10px;
-  text-transform: uppercase;
-}
-
-
-/* СТИЛОВИ ЗА СТРЕЛИЦЕ (Као у Mockupu) */
-.horizontal-slider::before,
-.horizontal-slider::after {
-  content: '\276E';
-  /* HTML код за леву стрелицу */
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 24px;
-  background-color: rgba(30, 30, 30, 0.7);
-  /* Тамна, полу-провидна позадина */
-  color: var(--color-text-light);
-  /* Наранџаста стрелица */
-  border-radius: 50%;
-  cursor: default;
-  /* Онемогући клик, јер не имплементирамо JS функционалност */
-  z-index: 10;
-  pointer-events: none;
-  /* Осигурава да не блокира скроловање */
-  opacity: 0.8;
-}
-
-.horizontal-slider::before {
-  left: -50px;
-}
-
-.horizontal-slider::after {
-  content: '\276F';
-  /* HTML код за десну стрелицу */
-  right: -50px;
-}
-
-/* КОНТЕЈНЕР ОКО СЛИКЕ И НАПИСА */
-.gallery-item-container {
-  /* Напомена: Овај контејнер сада има ширину и висину 
-       (која је претходно била на a.gallery-item) */
-  flex: 0 0 calc(33.333% - 13.333px);
-  scroll-snap-align: start;
-  height: 250px;
-  /* Укупна висина контејнера */
-
-  /* Ово осигурава да натпис буде на дну */
-  display: flex;
-  flex-direction: column;
-
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: var(--color-bg-light);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-    
 
 /* ====================================================================== */
 /* STILOVI ZA SERVICES.HTML KARTICE */
 /* ====================================================================== */
 
-/* Primena lepšeg fonta (ako već nije definisan u body stilu) */
-/* body {
-    font-family: 'Roboto', sans-serif; 
-} */
-
 /* Veći Padding i Veličina Kartice */
 .service-card {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   padding: 15px;
-  /* Dodatni padding na samoj kartici */
-  /* Uklanjamo border-0 iz HTML-a i stavljamo u CSS ako želite isti stil */
-  /* border: none; */
 }
 
 /* Hover efekat */
@@ -1189,4 +1153,103 @@ color: #F0F0F0;
 
 }
 
-/* Крај НОВИХ СТИЛОВА */
+/* ====================================================================== */
+/* ULTIMATIVNI FIKS ZA LIGHTBOX STRELICE */
+/* ====================================================================== */
+
+/* Osiguravamo da je tekstualni sadržaj (simbol strelice) vidljiv */
+.lightbox-prev,
+.lightbox-next {
+  /* Dodajemo boju i senku za ekstremnu vidljivost */
+  color: #ffc107 !important;
+  /* Promenimo u žutu za test */
+  text-shadow: 0 0 5px #000000;
+
+  /* Povećavamo veličinu fonta (simbola) */
+  font-size: 40px !important;
+
+  /* Povećavamo z-index ponovo */
+  z-index: 99999 !important;
+
+  /* Osiguravamo da su centrirane vertikalno */
+  line-height: 1;
+  top: 50% !important;
+  transform: translateY(-50%);
+  /* Dodajemo transform za precizno centriranje */
+  margin-top: 0 !important;
+  /* Uklanjamo stari margin-top */
+
+  /* Osiguravamo da su klikabilne */
+  width: 50px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FIKS ZA POZICIJU CLOSE DUGMETA */
+.lightbox-close {
+  z-index: 99999 !important;
+  color: #ffc107 !important;
+  top: 50px !important;
+}
+
+/* FIKS ZA CEO LIGHTBOX */
+.lightbox {
+  z-index: 99990 !important;
+}
+
+/* ====================================================================== */
+/* NOVI STILOVI ZA STRELICE SLIDERA (IZVAN LIGHTBOXA) */
+/* ====================================================================== */
+
+/* Kontrola strelica (za JS) */
+.slider-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  /* Iznad slika */
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--color-white);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.slider-control:hover {
+  background-color: var(--color-primary);
+  /* Narandžasti hover */
+  color: var(--color-white);
+}
+
+/* Pozicija za Levu Strelicu */
+.slider-prev {
+  left: 0px;
+  /* Malo van kontejnera, ako je potrebno */
+}
+
+/* Pozicija za Desnu Strelicu */
+.slider-next {
+  right: 0px;
+  /* Malo van kontejnera, ako je potrebno */
+}
+
+/* Sakrivamo strelice na mobilnom jer je skrolovanje dodirom primarno */
+@media (max-width: 768px) {
+  .slider-control {
+    display: none;
+  }
+
+  /* Na mobilnom, uklanjamo padding da strelice ne smetaju */
+  .horizontal-slider {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

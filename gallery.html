@@ -44,19 +44,25 @@
     </div>
   </section>
 
- 
+
 
   <section class="page-intro">
   </section>
-  
+
   <section class="video-highlights section-padding">
     <div class="container">
       <h2 class="section-title reveal">Videos</h2>
-  
+
       <div class="horizontal-slider video-slider">
-  
+        <div class="slider-control slider-prev" onclick="scrollSlider(this, 'prev')">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-control slider-next" onclick="scrollSlider(this, 'next')">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+
         <div class="slider-track">
-  
+
           <div class="video-item slider-item reveal">
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -64,7 +70,7 @@
             </iframe>
             <p class="video-caption">YouTube - video 1 (Kitchen Remodel)</p>
           </div>
-  
+
           <div class="video-item slider-item reveal">
             <iframe src="https://www.youtube.com/embed/o-YVn022h24" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -72,7 +78,7 @@
             </iframe>
             <p class="video-caption">YouTube - video 2 (Home Addition)</p>
           </div>
-  
+
           <div class="video-item slider-item reveal">
             <iframe src="https://www.youtube.com/embed/5F2oO2m_M4o" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -80,103 +86,162 @@
             </iframe>
             <p class="video-caption">YouTube - video 3 (Decking Project)</p>
           </div>
-  
+
         </div>
       </div>
     </div>
   </section>
-  
+
   <section class="gallery-section section-padding">
     <div class="container">
       <h2 class="section-title reveal">Images</h2>
-  
-      <h3 class="gallery-group-title">Deck works</h3>
+
+      <h3 class="gallery-group-title">Decks, Patios, and Railings</h3>
       <div class="horizontal-slider image-slider" data-group="deck">
+
+        <div class="slider-control slider-prev" onclick="scrollSlider(this, 'prev')">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-control slider-next" onclick="scrollSlider(this, 'next')">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+
         <div class="slider-track">
-  
-         
-          <div class="gallery-item-container slider-item reveal">
-            <a href="#" class="gallery-item" data-src="img/gallery/project_3_deck.jpg"
-              data-caption="Deck Image 1: Custom Built Deck Addition">
-              <img src="img/gallery/project_3_deck.jpg" alt="Deck 1">
+
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Dec Pat Rai0.jpg"
+            data-caption="Deck Image 1: Custom Built Deck Addition">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/Dec Pat Rai0.jpg" alt="Deck 1">
+            </a>
+            <div class="gallery-caption-footer">
+              <p class="caption-text"></p>
+            </div>
+          </div>
+
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Dec Pat Rai2.jpg"
+            data-caption="Deck Image 2: Custom Built Deck Addition">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/Dec Pat Rai2.jpg" alt="Deck 2">
+            </a>
+            <div class="gallery-caption-footer">
+              <p class="caption-text"></p>
+            </div>
+          </div>
+
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Dec Pat Rai3.jpg"
+            data-caption="Deck Image 3: Custom Built Deck Addition">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/Dec Pat Rai3.jpg" alt="Deck 3">
+            </a>
+            <div class="gallery-caption-footer">
+              <p class="caption-text"></p>
+            </div>
+          </div>
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Dec Pat Rai4.jpg"
+            data-caption="Deck Image 4: Custom Built Deck Addition">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/Dec Pat Rai4.jpg" alt="Deck 4">
+            </a>
+            <div class="gallery-caption-footer">
+              <p class="caption-text"></p>
+            </div>
+          </div>
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Dec Pat Rai5.jpg"
+            data-caption="Deck Image 5: Custom Built Deck Addition">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/Dec Pat Rai5.jpg" alt="Deck 5">
+            </a>
+            <div class="gallery-caption-footer">
+              <p class="caption-text"></p>
+            </div>
+          </div>
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Dec Pat Rai6.jpg"
+            data-caption="Deck Image 6: Custom Built Deck Addition">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/Dec Pat Rai6.jpg" alt="Deck 6">
+            </a>
+            <div class="gallery-caption-footer">
+              <p class="caption-text"></p>
+            </div>
+          </div>
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Dec Pat Rai7.jpg"
+            data-caption="Deck">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/Dec Pat Rai7.jpg" alt="Deck 7">
             </a>
             <div class="gallery-caption-footer">
               <p class="caption-text">Deck Image 1: Custom Built Deck Addition</p>
             </div>
           </div>
-  
-        
-          <div class="gallery-item-container slider-item reveal">
-            <a href="#" class="gallery-item" data-src="img/gallery/project_3_deck.jpg"
-              data-caption="Deck Image 2: Custom Built Deck Addition">
-              <img src="img/gallery/project_3_deck.jpg" alt="Deck 2">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text">Deck Image 2: Custom Built Deck Addition</p>
-            </div>
-          </div>
-  
-         
-          <div class="gallery-item-container slider-item reveal">
-            <a href="#" class="gallery-item" data-src="img/gallery/project_3_deck.jpg"
-              data-caption="Deck Image 3: Custom Built Deck Addition">
-              <img src="img/gallery/project_3_deck.jpg" alt="Deck 1">
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Dec Pat Rai8.jpg"
+            data-caption="Deck Image 8: Custom Built Deck Addition">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/Dec Pat Rai8.jpg" alt="Deck 8">
             </a>
             <div class="gallery-caption-footer">
               <p class="caption-text">Deck Image 1: Custom Built Deck Addition</p>
             </div>
           </div>
-  
+
+       
+
         </div>
       </div>
-  
+
       <h3 class="gallery-group-title">Bathroom works</h3>
       <div class="horizontal-slider image-slider" data-group="bathroom">
+
+        <div class="slider-control slider-prev" onclick="scrollSlider(this, 'prev')">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-control slider-next" onclick="scrollSlider(this, 'next')">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+
         <div class="slider-track">
-  
-          <!-- <a href="#" class="gallery-item slider-item reveal" data-src="img/gallery/project_2_bath.jpg"
+
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/project_2_bath.jpg"
             data-caption="Bathroom Image 1: Luxurious Bathroom Renovation">
-            <img src="img/gallery/project_2_bath.jpg" alt="Bathroom 1">
-          </a> -->
-          <div class="gallery-item-container slider-item reveal">
-            <a href="#" class="gallery-item" data-src="img/gallery/project_2_bath.jpg"
-              data-caption="Deck Image 1: Custom Built Deck Addition">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/project_2_bath.jpg" alt="Bathroom 1">
+            </a>
+            <div class="gallery-caption-footer">
+              <p class="caption-text">Deck Image 1: Custom Built Deck Addition</p>
+            </div>
+          </div>
+
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/project_2_bath.jpg"
+            data-caption="Bathroom Image 2: Luxurious Bathroom Renovation">
+            <a href="#" class="gallery-link">
+              <img src="img/gallery/project_2_bath.jpg" alt="Bathroom 2">
+            </a>
+            <div class="gallery-caption-footer">
+              <p class="caption-text">Deck Image 1: Custom Built Deck Addition</p>
+            </div>
+          </div>
+
+          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/project_2_bath.jpg"
+            data-caption="Bathroom Image 3: Luxurious Bathroom Renovation">
+            <a href="#" class="gallery-link">
               <img src="img/gallery/project_2_bath.jpg" alt="Bathroom 3">
             </a>
             <div class="gallery-caption-footer">
               <p class="caption-text">Deck Image 1: Custom Built Deck Addition</p>
             </div>
           </div>
-  
-          <!-- <a href="#" class="gallery-item slider-item reveal" data-src="img/gallery/project_5_framing.jpg"
-            data-caption="Bathroom Image 2: Framing Detail">
-            <img src="img/gallery/project_5_framing.jpg" alt="Bathroom 2">
-          </a> -->
-            <div class="gallery-item-container slider-item reveal">
-              <a href="#" class="gallery-item" data-src="img/gallery/project_2_bath.jpg"
-                data-caption="Deck Image 2: Custom Built Deck Addition">
-                <img src="img/gallery/project_2_bath.jpg" alt="Bathroom 3">
-              </a>
-              <div class="gallery-caption-footer">
-                <p class="caption-text">Deck Image 1: Custom Built Deck Addition</p>
-              </div>
-            </div>
-          <!-- <a href="#" class="gallery-item slider-item reveal" data-src="img/gallery/project_6_basement.jpg"
-            data-caption="Bathroom Image 3: Finished Basement">
-            <img src="img/gallery/project_6_basement.jpg" alt="Bathroom 3">
-          </a> -->
-            <div class="gallery-item-container slider-item reveal">
-              <a href="#" class="gallery-item" data-src="img/gallery/project_2_bath.jpg"
-                data-caption="Deck Image 3: Custom Built Deck Addition">
-                <img src="img/gallery/project_2_bath.jpg" alt="Bathroom 3">
-              </a>
-              <div class="gallery-caption-footer">
-                <p class="caption-text">Deck Image 1: Custom Built Deck Addition</p>
-              </div>
-            </div>
         </div>
       </div>
-  
+
     </div>
   </section>
 

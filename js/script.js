@@ -1,106 +1,131 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // =======================================================
-    // 1. SCROLL REVEAL АНИМАЦИЈА
-    // =======================================================
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, {
-        threshold: 0.15 // Елемент се појављује када је 15% видљив
-    });
-
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach(el => observer.observe(el));
-
-
-    // =======================================================
-    // 2. HAMBURGER МЕНИ
-    // =======================================================
+    // ------------------------------------------------------------------
+    // 1. NAVIGATION TOGGLE (MOBILE MENU)
+    // ------------------------------------------------------------------
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
-    
-    // Не треба нам додатна класа, користимо само 'open'
+    const menuBars = menuToggle.querySelector('.fa-bars');
+    const menuTimes = menuToggle.querySelector('.fa-times');
+
     menuToggle.addEventListener('click', () => {
         mainNav.classList.toggle('open');
-        
-        // Мењање иконе (нпр. из хамбургера у X)
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        menuBars.style.display = mainNav.classList.contains('open') ? 'none' : 'inline-block';
+        menuTimes.style.display = mainNav.classList.contains('open') ? 'inline-block' : 'none';
+        // Sprečava skrolovanje pozadine kada je meni otvoren
+        document.body.style.overflow = mainNav.classList.contains('open') ? 'hidden' : 'auto';
     });
 
-    // =======================================================
-    // 3. GALLERY LIGHTBOX & CAROUSEL
-    // =======================================================
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    // ------------------------------------------------------------------
+    // 2. SCROLL REVEAL ANIMATION
+    // ------------------------------------------------------------------
+    function reveal() {
+        const reveals = document.querySelectorAll('.reveal');
+
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const elementTop = reveals[i].getBoundingClientRect().top;
+            const elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', reveal);
+    // Pokreni na startu da prikaže elemente na vrhu
+    reveal();
+
+
+    // ------------------------------------------------------------------
+    // 3. LIGHTBOX FUNCTIONALITY (Galerija)
+    // ------------------------------------------------------------------
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
-    
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    let currentGroup = [];
     let currentIndex = 0;
-    let images = []; 
 
-    // Прикупи све слике у низ
-    galleryItems.forEach((item, index) => {
-        images.push({
-            src: item.getAttribute('data-src'),
-            caption: item.getAttribute('data-caption'),
-            index: index
-        });
-
-    });
-
-    // Функција за отварање LightBox-а
-    function openLightbox(index) {
+    // Funkcija za otvaranje lightboxa
+    function openLightbox(group, index) {
+        currentGroup = group;
         currentIndex = index;
-        lightbox.style.display = 'block';
         updateLightboxContent();
+        lightbox.style.display = 'block';
     }
 
-    // Функција за ажурирање садржаја LightBox-а
+    // Funkcija za ažuriranje sadržaja lightboxa
     function updateLightboxContent() {
-        const currentImage = images[currentIndex];
-        lightboxImg.src = currentImage.src;
-        lightboxCaption.textContent = currentImage.caption;
+        const item = currentGroup[currentIndex];
+        lightboxImg.src = item.dataset.src;
+        lightboxCaption.innerHTML = item.dataset.caption;
     }
 
-    // Затварање LightBox-а
-    closeBtn.onclick = function() {
+    // Funkcija za zatvaranje
+    lightboxClose.onclick = function() {
         lightbox.style.display = 'none';
     };
 
-    // Кликови на слике у мрежи
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault(); 
-            openLightbox(index);
-            const captionText = this.getAttribute('data-caption');
-        document.getElementById('lightbox-caption').textContent = captionText;
-        });
-    });
-
-    // Carousel функционалност (Претходна/Следећа)
-    prevBtn.onclick = function() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateLightboxContent();
-    };
-
-    nextBtn.onclick = function() {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateLightboxContent();
-    };
-
-    // Затварање кликом ван слике
+    // Zatvori klikom izvan slike
     lightbox.onclick = function(e) {
         if (e.target === lightbox) {
             lightbox.style.display = 'none';
         }
     };
+
+    // Navigacija (Prev/Next)
+    lightboxPrev.onclick = function(e) {
+        e.stopPropagation(); // Sprečava zatvaranje lightboxa
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentGroup.length - 1;
+        updateLightboxContent();
+    };
+
+    lightboxNext.onclick = function(e) {
+        e.stopPropagation(); // Sprečava zatvaranje lightboxa
+        currentIndex = (currentIndex < currentGroup.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxContent();
+    };
+
+    // Dodavanje event listenera za sve galerijske linkove
+    document.querySelectorAll('.gallery-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const item = e.currentTarget.closest('.gallery-item-container');
+            const groupContainer = e.currentTarget.closest('.horizontal-slider');
+            const groupItems = Array.from(groupContainer.querySelectorAll('.gallery-item-container'));
+            const index = groupItems.indexOf(item);
+            openLightbox(groupItems, index);
+        });
+    });
+
+    // ------------------------------------------------------------------
+    // 4. HORIZONTAL SLIDER NAVIGATION (Novi Slider dugmići)
+    // ------------------------------------------------------------------
+    window.scrollSlider = function(button, direction) {
+        // Pronađi roditeljski slider
+        const slider = button.closest('.horizontal-slider');
+        // Pronađi track koji se skroluje unutar tog slidera
+        const sliderTrack = slider.querySelector('.slider-track');
+        
+        // Definiši korak skrolovanja (širina jedne kartice + gap)
+        // Ako je na mobilnom, korak treba biti širina celog track-a
+        let scrollStep = 320; // Default za desktop: ~300px slika + 20px gap
+
+        // Proveri da li smo na mobilnom (manje od 768px, gde je širina 100%)
+        if (window.innerWidth <= 768) {
+             // Na mobilnom, skrolujemo za celu širinu tracka (width 100% u CSS-u)
+             scrollStep = sliderTrack.offsetWidth;
+        }
+
+        if (direction === 'next') {
+            sliderTrack.scrollLeft += scrollStep;
+        } else if (direction === 'prev') {
+            sliderTrack.scrollLeft -= scrollStep;
+        }
+    };
+    // ------------------------------------------------------------------
+
 });
