@@ -1,383 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - G4 Construction LLC | Our Projects</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - G4 Construction LLC | Our Projects</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <body>
+    <header class="main-header">
+      <div class="container header-content">
+        <a href="index.html" class="logo-image-container">
+          <img
+            src="./img/g4conllc_logo_dark_light.png"
+            alt="G4 Construction LLC Logo"
+            class="logo-img"
+          />
+        </a>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
 
-<body>
+        <div class="header-contact">
+          <a href="tel:+14259510521" class="phone-link"
+            ><i class="fas fa-phone-alt"></i> (425) 951-0521</a
+          >
+        </div>
 
-  <header class="main-header">
-    <div class="container header-content">
-      <a href="index.html" class="logo-image-container">
-        <img src="./img/g4conllc_logo_dark_light.png" alt="G4 Construction LLC Logo" class="logo-img">
-      </a>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="gallery.html" class="active">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-contact">
-        <a href="tel:+14259510521" class="phone-link"><i class="fas fa-phone-alt"></i> (425) 951-0521</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+          <i class="fas fa-times"></i>
+        </button>
       </div>
+    </header>
 
-      <button class="menu-toggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-  </header>
-
-  <section class="page-intro">
-    <div class="container">
-      <h1 class="page-title reveal">Our Project Gallery</h1>
-    </div>
-  </section>
-
-
-
-  <section class="page-intro">
-  </section>
-
-  <!-- <section class="video-highlights section-padding">
-    <div class="container">
-      <h2 class="section-title reveal">Videos</h2>
-
-      <div class="horizontal-slider video-slider">
-        <div class="slider-control slider-prev" onclick="scrollSlider(this, 'prev')">
-          <i class="fas fa-chevron-left"></i>
-        </div>
-        <div class="slider-control slider-next" onclick="scrollSlider(this, 'next')">
-          <i class="fas fa-chevron-right"></i>
-        </div>
-
-        <div class="slider-track">
-
-          <div class="video-item slider-item reveal">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <p class="video-caption">YouTube - video 1 (Kitchen Remodel)</p>
-          </div>
-
-          <div class="video-item slider-item reveal">
-            <iframe src="https://www.youtube.com/embed/o-YVn022h24" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <p class="video-caption">YouTube - video 2 (Home Addition)</p>
-          </div>
-
-          <div class="video-item slider-item reveal">
-            <iframe src="https://www.youtube.com/embed/5F2oO2m_M4o" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-            <p class="video-caption">YouTube - video 3 (Decking Project)</p>
-          </div>
-
-        </div>
+    <section class="page-intro">
+      <div class="container">
+        <h1 class="page-title reveal">Our Project Gallery</h1>
       </div>
-    </div>
-  </section> -->
+    </section>
 
-  <section class="gallery-section section-padding">
-    <div class="container">
-      <h2 class="section-title reveal">Images</h2>
+    <section class="page-intro"></section>
 
-      <h3 class="gallery-group-title">Decks, Patios, and Railings</h3>
-      <div class="horizontal-slider image-slider" data-group="deck">
+    <section class="gallery-section section-padding">
+      <div class="container">
+        <h2 class="section-title reveal">Images</h2>
 
-        <div class="slider-control slider-prev" onclick="scrollSlider(this, 'prev')">
-          <i class="fas fa-chevron-left"></i>
-        </div>
-        <div class="slider-control slider-next" onclick="scrollSlider(this, 'next')">
-          <i class="fas fa-chevron-right"></i>
-        </div>
-
-        <div class="slider-track">
-
-
-       
-
-
-          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai2.jpg"
-            data-caption="">
-            <a href="#" class="gallery-link">
-              <img src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai2.jpg" alt="Deck 2">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text"></p>
-            </div>
+        <h3 class="gallery-group-title">Decks, Patios, and Railings</h3>
+        <div class="horizontal-slider image-slider" data-group="deck">
+          <div
+            class="slider-control slider-prev"
+            onclick="scrollSlider(this, 'prev')"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div
+            class="slider-control slider-next"
+            onclick="scrollSlider(this, 'next')"
+          >
+            <i class="fas fa-chevron-right"></i>
           </div>
 
-
-          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai3.jpg"
-            data-caption="">
-            <a href="#" class="gallery-link">
-              <img src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai0.jpg" alt="Deck 3">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text"></p>
-            </div>
-          </div>
-
-          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai4.jpg"
-            data-caption="">
-            <a href="#" class="gallery-link">
-              <img src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai4.jpg" alt="Deck 4">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text"></p>
-            </div>
-          </div>
-
-          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai5.jpg"
-            data-caption="">
-            <a href="#" class="gallery-link">
-              <img src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai5.jpg" alt="Deck 5">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text"></p>
-            </div>
-          </div>
-
-          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai6.jpg"
-            data-caption="">
-            <a href="#" class="gallery-link">
-              <img src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai6.jpg" alt="Deck 6">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text"></p>
-            </div>
-          </div>
-
-          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai7.jpg"
-            data-caption="">
-            <a href="#" class="gallery-link">
-              <img src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai7.jpg" alt="Deck 7">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text">Deck Image 1: Custom Built Deck Addition</p>
-            </div>
-          </div>
-
-          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai8.jpg"
-            data-caption="">
-            <a href="#" class="gallery-link">
-              <img src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai8.jpg" alt="Deck 8">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text"></p>
-            </div>
-          </div>
-
-       
-
-        </div>
-      </div>
-
-      <h3 class="gallery-group-title">Bathroom works</h3>
-      <div class="horizontal-slider image-slider" data-group="bathroom">
-
-        <div class="slider-control slider-prev" onclick="scrollSlider(this, 'prev')">
-          <i class="fas fa-chevron-left"></i>
-        </div>
-        <div class="slider-control slider-next" onclick="scrollSlider(this, 'next')">
-          <i class="fas fa-chevron-right"></i>
-        </div>
-
-        <div class="slider-track">
-
-
-        <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath1.jpg"
-          data-caption="">
-          <a href="#" class="gallery-link">
-            <img src="img/gallery/bathrooms/bath1.jpg" alt="Bathroom 1">
-          </a>
-          <div class="gallery-caption-footer">
-            <p class="caption-text"></p>
-          </div>
-        </div>
-
-          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath2.jpg"
-            data-caption="">
-            <a href="#" class="gallery-link">
-              <img src="img/gallery/bathrooms/bath2.jpg" alt="Bathroom 2">
-            </a>
-            <div class="gallery-caption-footer">
-              <p class="caption-text"></p>
-            </div>
-          </div>
-
-            <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath3.jpg"
-              data-caption="">
+          <div class="slider-track">
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai2.jpg"
+              data-caption=""
+            >
               <a href="#" class="gallery-link">
-                <img src="img/gallery/bathrooms/bath3.jpg" alt="Bathroom 3">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai2.jpg"
+                  alt="Deck 2"
+                />
               </a>
               <div class="gallery-caption-footer">
                 <p class="caption-text"></p>
               </div>
             </div>
 
-              <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath4.jpg"
-                data-caption="">
-                <a href="#" class="gallery-link">
-                  <img src="img/gallery/bathrooms/bath4.jpg" alt="Bathroom 4">
-                </a>
-                <div class="gallery-caption-footer">
-                  <p class="caption-text"></p>
-                </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai3.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai0.jpg"
+                  alt="Deck 3"
+                />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
               </div>
+            </div>
 
-                <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath5.jpg"
-                  data-caption="">
-                  <a href="#" class="gallery-link">
-                    <img src="img/gallery/bathrooms/bath5.jpg" alt="Bathroom 5">
-                  </a>
-                  <div class="gallery-caption-footer">
-                    <p class="caption-text"></p>
-                  </div>
-                </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai4.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai4.jpg"
+                  alt="Deck 4"
+                />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
 
-                  <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath6.jpg" data-caption="">
-                    <a href="#" class="gallery-link">
-                      <img src="img/gallery/bathrooms/bath6.jpg" alt="Bathroom 6">
-                    </a>
-                    <div class="gallery-caption-footer">
-                      <p class="caption-text"></p>
-                    </div>
-                  </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai5.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai5.jpg"
+                  alt="Deck 5"
+                />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
 
-                    <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath7.jpg" data-caption="">
-                      <a href="#" class="gallery-link">
-                        <img src="img/gallery/bathrooms/bath7.jpg" alt="Bathroom 7">
-                      </a>
-                      <div class="gallery-caption-footer">
-                        <p class="caption-text"></p>
-                      </div>
-                    </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai6.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai6.jpg"
+                  alt="Deck 6"
+                />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
 
-                      <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath8.jpg" data-caption="">
-                        <a href="#" class="gallery-link">
-                          <img src="img/gallery/bathrooms/bath8.jpg" alt="Bathroom 8">
-                        </a>
-                        <div class="gallery-caption-footer">
-                          <p class="caption-text"></p>
-                        </div>
-                      </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai7.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai7.jpg"
+                  alt="Deck 7"
+                />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
 
-                        <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath9.jpg" data-caption="">
-                          <a href="#" class="gallery-link">
-                            <img src="img/gallery/bathrooms/bath9.jpg" alt="Bathroom 9">
-                          </a>
-                          <div class="gallery-caption-footer">
-                            <p class="caption-text"></p>
-                          </div>
-                        </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai8.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai8.jpg"
+                  alt="Deck 8"
+                />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai9.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai9.jpg"
+                  alt="Deck 7"
+                />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
 
-                          <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath10.jpg" data-caption="">
-                            <a href="#" class="gallery-link">
-                              <img src="img/gallery/bathrooms/bath10.jpg" alt="Bathroom 10">
-                            </a>
-                            <div class="gallery-caption-footer">
-                              <p class="caption-text"></p>
-                            </div>
-                          </div>
-                            <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath11.jpg" data-caption="">
-                              <a href="#" class="gallery-link">
-                                <img src="img/gallery/bathrooms/bath11.jpg" alt="Bathroom 11">
-                              </a>
-                              <div class="gallery-caption-footer">
-                                <p class="caption-text"></p>
-                              </div>
-                            </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai10.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img
+                  src="img/gallery/Decks_Patiosand_Railings/Dec Pat Rai10.jpg"
+                  alt="Deck 10"
+                />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                              <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath12.jpg" data-caption="">
-                                <a href="#" class="gallery-link">
-                                  <img src="img/gallery/bathrooms/bath12.jpg" alt="Bathroom 12">
-                                </a>
-                                <div class="gallery-caption-footer">
-                                  <p class="caption-text"></p>
-                                </div>
-                              </div>
-                                <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath13.jpg" data-caption="">
-                                  <a href="#" class="gallery-link">
-                                    <img src="img/gallery/bathrooms/bath13.jpg" alt="Bathroom 13">
-                                  </a>
-                                  <div class="gallery-caption-footer">
-                                    <p class="caption-text"></p>
-                                  </div>
-                                </div>
-                                  <div class="gallery-item-container slider-item reveal" data-src="img/gallery/bathrooms/bath14.jpg" data-caption="">
-                                    <a href="#" class="gallery-link">
-                                      <img src="img/gallery/bathrooms/bath14.jpg" alt="Bathroom 14">
-                                    </a>
-                                    <div class="gallery-caption-footer">
-                                      <p class="caption-text"></p>
-                                    </div>
-                                  </div>
-                 
+        <!-- BATHROOMS -->
+        <h3 class="gallery-group-title">Bathroom works</h3>
+        <div class="horizontal-slider image-slider" data-group="bathroom">
+          <div
+            class="slider-control slider-prev"
+            onclick="scrollSlider(this, 'prev')"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div
+            class="slider-control slider-next"
+            onclick="scrollSlider(this, 'next')"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </div>
+
+          <div class="slider-track">
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath1.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath1.jpg" alt="Bathroom 1" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath2.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath2.jpg" alt="Bathroom 2" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath3.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath3.jpg" alt="Bathroom 3" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath4.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath4.jpg" alt="Bathroom 4" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath5.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath5.jpg" alt="Bathroom 5" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath6.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath6.jpg" alt="Bathroom 6" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath7.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath7.jpg" alt="Bathroom 7" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath8.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath8.jpg" alt="Bathroom 8" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath9.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath9.jpg" alt="Bathroom 9" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath10.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath10.jpg" alt="Bathroom 10" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath11.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath11.jpg" alt="Bathroom 11" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath12.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath12.jpg" alt="Bathroom 12" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath13.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath13.jpg" alt="Bathroom 13" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+            <div
+              class="gallery-item-container slider-item reveal"
+              data-src="img/gallery/bathrooms/bath14.jpg"
+              data-caption=""
+            >
+              <a href="#" class="gallery-link">
+                <img src="img/gallery/bathrooms/bath14.jpg" alt="Bathroom 14" />
+              </a>
+              <div class="gallery-caption-footer">
+                <p class="caption-text"></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
 
-<div id="lightbox" class="lightbox">
-  <span class="lightbox-close">&times;</span>
+      <a class="lightbox-prev">&#10094;</a>
 
-  <a class="lightbox-prev">&#10094;</a>
-
-  <div class="lightbox-inner">
-    <img class="lightbox-content" id="lightbox-img">
-    <div id="lightbox-caption" class="lightbox-caption"></div>
-  </div>
-  <a class="lightbox-next">&#10095;</a>
-</div>
-
-  <footer class="main-footer">
-    <div class="container footer-grid">
-      <div class="footer-contact">
-        <h4>Contact Us</h4>
-        <p><i class="fas fa-map-marker-alt"></i> 2633 302nd St, Federal Way, WA 98003</p>
-        <p><i class="fas fa-phone-alt"></i> <a href="tel:+14259510521">(425) 951-0521</a></p>
-        <p><i class="fas fa-envelope"></i> <a href="mailto:g4build.llc@gmail.com">g4build.llc@gmail.com</a>
-        </p>
+      <div class="lightbox-inner">
+        <img class="lightbox-content" id="lightbox-img" />
+        <div id="lightbox-caption" class="lightbox-caption"></div>
       </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Our Services</a></li>
-          <li><a href="gallery.html">Project Gallery</a></li>
-          <li><a href="contact.html">Request a Quote</a></li>
-        </ul>
-      </div>
-      <div class="footer-info">
-        <h4>Operating Hours</h4>
-        <p>Mon - Sun: 07:00 AM - 07:00 PM</p>
-        <p>Licensed & Insured</p>
-        <p>Serving the Greater Seattle Area (WA)</p>
-      </div>
+      <a class="lightbox-next">&#10095;</a>
     </div>
-    <div class="text-center" style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-      <p>© 2025 G4 Construction LLC. All Rights Reserved.</p>
-    </div>
-  </footer>
 
-  <script src="js/script.js"></script>
-</body>
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            <i class="fas fa-map-marker-alt"></i> 2633 302nd St, Federal Way, WA
+            98003
+          </p>
+          <p>
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:+14259510521">(425) 951-0521</a>
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:g4build.llc@gmail.com">g4build.llc@gmail.com</a>
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="gallery.html">Project Gallery</a></li>
+            <li><a href="contact.html">Request a Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-info">
+          <h4>Operating Hours</h4>
+          <p>Mon - Sun: 07:00 AM - 07:00 PM</p>
+          <p>Licensed & Insured</p>
+          <p>Serving the Greater Seattle Area (WA)</p>
+        </div>
+      </div>
+      <div
+        class="text-center"
+        style="
+          margin-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          padding-top: 15px;
+        "
+      >
+        <p>© 2025 G4 Construction LLC. All Rights Reserved.</p>
+      </div>
+    </footer>
 
+    <script src="js/script.js"></script>
+  </body>
 </html>
