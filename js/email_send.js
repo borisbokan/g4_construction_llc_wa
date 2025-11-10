@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.contact-form');
     // URL Vašeg Worker-a
-    const workerUrl = "https://mail-handler-g4con.g4build-llc.workers.dev/"; // PROMENITE OVO AKO VAM SE URL RAZLIKUJE
+    const workerUrl = "https://email-handler.g4build-llc.workers.dev/"; // PROMENITE OVO AKO VAM SE URL RAZLIKUJE
 
     form.addEventListener('submit', function(e) {
         e.preventDefault(); // Sprečavamo standardno slanje forme i redirect
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.textContent = 'Sending...'; // Menjamo tekst dugmeta
 
       fetch(workerUrl, {
-            enctype: 'application/x-www-form-urlencoded',
             method: 'POST',
             body: formData // Šaljemo FormData objekat direktno
         })
