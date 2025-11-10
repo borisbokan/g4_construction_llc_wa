@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.contact-form');
     // URL Vašeg Worker-a
-    const workerUrl = "https://g4construction-mail-handler.borisbokan.workers.dev"; // PROMENITE OVO AKO VAM SE URL RAZLIKUJE
+    const workerUrl = "https://g4construction-mail-handler2.borisbokan.workers.dev"; // PROMENITE OVO AKO VAM SE URL RAZLIKUJE
 
     form.addEventListener('submit', function(e) {
         e.preventDefault(); // Sprečavamo standardno slanje forme i redirect
