@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.disabled = true; // Onemogućavamo dugme
         submitButton.textContent = 'Sending...'; // Menjamo tekst dugmeta
 
-        fetch(workerUrl, {
+      fetch(workerUrl, {
+            enctype: 'application/x-www-form-urlencoded',
             method: 'POST',
             body: formData // Šaljemo FormData objekat direktno
         })
