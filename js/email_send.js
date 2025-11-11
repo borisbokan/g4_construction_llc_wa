@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.contact-form');
     // KORISTIMO CUSTOM ROUTE:
-    const workerUrl = "https://email-worker.g4build-llc.workers.dev/"; 
+    const workerUrl = "https://form-api.g4-construction.com"; 
 
     form.addEventListener('submit', function(e) {
         e.preventDefault(); 
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Ako Worker vrati grešku (npr. status 500)
                 const statusMessage = body.message || 'Unknown Server Error.';
-                alert('Error: ' + statusMessage + '\n Please use the email from the contact page and send it to us directly.');
+                alert('Error: ' + statusMessage + '\n ');
             }
         })
         .catch(error => {
