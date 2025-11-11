@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Ako Worker vrati grešku (npr. status 500)
                 const statusMessage = body.message || 'Unknown Server Error.';
-                alert('Error: ' + statusMessage);
+                alert('Error: ' + statusMessage + '\n Please use the email from the contact page and send it to us directly.');
             }
         })
         .catch(error => {
