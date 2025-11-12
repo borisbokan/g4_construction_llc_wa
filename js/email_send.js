@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.contact-form');
     // KORISTIMO CUSTOM ROUTE:
-    const workerUrl = "https://form-api.g4-construction.com"; 
+    const workerUrl = "https://email-handler-g4con.g4build-llc.workers.dev"; 
 
     form.addEventListener('submit', function(e) {
         e.preventDefault(); 
